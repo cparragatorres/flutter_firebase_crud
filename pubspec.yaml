@@ -37,7 +37,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_core: ^2.14.0
   cloud_firestore: ^4.8.1
-  google_fonts: ^5.1.0
+  google_fonts: ^4.0.4 #esta version es compatible con firebase_storage:  ^11.0.10
+  image_picker: ^0.8.9
+  #Image_Picker Permite  elegir imágenes de la biblioteca de imágenes, y tomando nuevas fotos con la cámara.
+  firebase_storage: ^11.0.10
+  #Firebase_Storage es donde se almacena las imagenes
+
 
 dev_dependencies:
   flutter_test:

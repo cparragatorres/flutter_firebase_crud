@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-//Firestore
-import 'package:cloud_firestore/cloud_firestore.dart';
 // Pages
 import 'package:trueque_app/Pages/agregar_usuarios_page.dart';
 import 'package:trueque_app/Pages/editar_usuarios_page.dart';
 import 'package:trueque_app/Pages/mostrar_usuarios_page.dart';
+import 'package:trueque_app/Pages/subir_imagenes_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -48,6 +47,10 @@ class _HomePageState extends State<HomePage> {
                 title: "Editar datos en Firestore",
                 toPage: EditarUsuariosPage(),
               ),
+              ItemComponentWidget(
+                title: "Subir Imagenes a Firebase Storage",
+                toPage: SubirImagenesPage(),
+              ),
             ],
           ),
         ),
@@ -63,7 +66,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class ItemComponentWidget extends StatelessWidget {
+class ItemComponentWidget extends StatefulWidget {
   String title;
   Widget toPage;
 
@@ -72,6 +75,11 @@ class ItemComponentWidget extends StatelessWidget {
     required this.toPage,
   });
 
+  @override
+  State<ItemComponentWidget> createState() => _ItemComponentWidgetState();
+}
+
+class _ItemComponentWidgetState extends State<ItemComponentWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -89,13 +97,13 @@ class ItemComponentWidget extends StatelessWidget {
       ),
       child: ListTile(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => toPage));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => widget.toPage));
         },
         leading: Icon(
           Icons.check_circle_outline,
           color: Color(0xff4a5467),
         ),
-        title: Text(title),
+        title: Text(widget.title),
         trailing: Icon(
           Icons.chevron_right,
         ),
