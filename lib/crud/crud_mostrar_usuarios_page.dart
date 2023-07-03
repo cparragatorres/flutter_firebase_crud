@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trueque_app/Pages/agregar_usuarios_page.dart';
-import 'package:trueque_app/Pages/editar_usuarios_page.dart';
+import 'package:trueque_app/crud/crud_agregar_usuarios_page.dart';
+import 'package:trueque_app/crud/crud_editar_usuarios_page.dart';
 // Servicios
 import 'package:trueque_app/services/firebase_service.dart';
 
@@ -90,7 +90,7 @@ class _MostrarUsuariosPageState extends State<MostrarUsuariosPage> {
                           await Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EditarUsuariosPage(),
+                                  builder: (context) => CrudEditarUsuariosPage(),
                                   settings: RouteSettings(
                                     arguments: {
                                       "name": snapshot.data?[index]['name'],
@@ -108,7 +108,7 @@ class _MostrarUsuariosPageState extends State<MostrarUsuariosPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          await Navigator.push(context, MaterialPageRoute(builder: (context) => AgregarUsuariosPage()));
+          await Navigator.push(context, MaterialPageRoute(builder: (context) => CrudAgregarUsuariosPage()));
           setState(() {}); //este setState actualiza el nuevo nombre agregado en tiempo real
         },
         child: const Icon(Icons.add),

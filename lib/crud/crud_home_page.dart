@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 // Pages
-import 'package:trueque_app/Pages/agregar_usuarios_page.dart';
-import 'package:trueque_app/Pages/editar_usuarios_page.dart';
-import 'package:trueque_app/Pages/mostrar_usuarios_page.dart';
-import 'package:trueque_app/Pages/subir_imagenes_page.dart';
+import 'package:trueque_app/crud/crud_agregar_usuarios_page.dart';
+import 'package:trueque_app/crud/crud_editar_usuarios_page.dart';
+import 'package:trueque_app/crud/crud_mostrar_usuarios_page.dart';
+import 'package:trueque_app/Pages/t_home_page.dart';
+import 'package:trueque_app/crud/crud_subir_imagenes_page.dart';
 
-class HomePage extends StatefulWidget {
+class CrudHomePage extends StatefulWidget {
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<CrudHomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<CrudHomePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Text(
                 "Flutter Firestore",
-                style: GoogleFonts.oregano(
+                style: TextStyle(
                   fontSize: 22.0,
                   fontWeight: FontWeight.w400,
                 ),
@@ -41,15 +41,19 @@ class _HomePageState extends State<HomePage> {
               ),
               ItemComponentWidget(
                 title: "Agregar datos en Firestore",
-                toPage: AgregarUsuariosPage(),
+                toPage: CrudAgregarUsuariosPage(),
               ),
               ItemComponentWidget(
                 title: "Editar datos en Firestore",
-                toPage: EditarUsuariosPage(),
+                toPage: CrudEditarUsuariosPage(),
               ),
               ItemComponentWidget(
                 title: "Subir Imagenes a Firebase Storage",
                 toPage: SubirImagenesPage(),
+              ),
+              ItemComponentWidget(
+                title: "Trueque App",
+                toPage: THomePage(),
               ),
             ],
           ),
@@ -57,7 +61,7 @@ class _HomePageState extends State<HomePage> {
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.blueGrey,
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => AgregarUsuariosPage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => CrudAgregarUsuariosPage()));
           },
           child: Icon(Icons.add),
         ),
@@ -67,8 +71,8 @@ class _HomePageState extends State<HomePage> {
 }
 
 class ItemComponentWidget extends StatefulWidget {
-  String title;
-  Widget toPage;
+  final String title;
+  final Widget toPage;
 
   ItemComponentWidget({
     required this.title,

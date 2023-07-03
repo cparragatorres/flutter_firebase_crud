@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:trueque_app/services/firebase_service.dart';
 
-class AgregarUsuariosPage extends StatefulWidget {
+class CrudAgregarUsuariosPage extends StatefulWidget {
   @override
-  State<AgregarUsuariosPage> createState() => _AgregarUsuariosPageState();
+  State<CrudAgregarUsuariosPage> createState() => _CrudAgregarUsuariosPageState();
 }
 
-class _AgregarUsuariosPageState extends State<AgregarUsuariosPage> {
+class _CrudAgregarUsuariosPageState extends State<CrudAgregarUsuariosPage> {
   TextEditingController nameController = TextEditingController(text: "");
 
   @override

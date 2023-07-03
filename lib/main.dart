@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-// Importaciones de firebase
-// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 // Pages
-import 'package:trueque_app/Pages/home_page.dart';
+import 'package:trueque_app/SplashScreen/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,9 +14,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: HomePage(),
+    return SafeArea(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(primarySwatch: Colors.brown),
+        title: 'Trueque',
+        home: SplashScreen(),
+      ),
     );
   }
 }
