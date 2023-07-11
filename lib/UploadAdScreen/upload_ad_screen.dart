@@ -237,7 +237,6 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
                                 "itemPrice": itemPrice,
                                 "itemModel": itemModel,
                                 "itemColor": itemColor,
-                                // "itemState": itemState,
                                 "description": description,
                                 "urlImage1": urlsList[0].toString(),
                                 "urlImage2": urlsList[1].toString(),

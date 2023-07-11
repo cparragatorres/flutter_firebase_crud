@@ -281,7 +281,6 @@ class _ListViewWidgetState extends State<ListViewWidget> {
                             widget.itemModel,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-
                             style: TextStyle(
                               fontSize: 20.0,
                               color: Colors.white,

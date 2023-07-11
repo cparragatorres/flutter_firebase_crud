@@ -126,6 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
         body: WelcomeBackground1(
           child: StreamBuilder<QuerySnapshot>(
             stream: FirebaseFirestore.instance.collection("items").orderBy("time", descending: true).snapshots(),
+            //Este builder se reutilizará en ProfileScreen y SearchProduct
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(
